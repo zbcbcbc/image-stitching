@@ -83,6 +83,5 @@ end
 figure, imshow(img_pool{1});
 
 
-end
 
 

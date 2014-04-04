@@ -12,7 +12,13 @@ function n2 = dist2(x, c)
 %	Jth row of C.
 %
 %
-%	Copyright (c) Ian T Nabney (1996-2001)
+% Author: 
+% Bicheng Zhang  
+% Department of Computer Engineering
+% University of Illinois Urbana Champaign
+% viczhang1990@gmail.com
+%
+% March 2014
 
 [ndata, dimx] = size(x);
 [ncentres, dimc] = size(c);

@@ -1,6 +1,14 @@
 function index = randIndex(maxIndex,len)
 %INDEX = RANDINDEX(MAXINDEX,LEN)
 %   randomly, non-repeatedly select LEN integers from 1:MAXINDEX
+% Author: 
+% Bicheng Zhang  
+% Department of Computer Engineering
+% University of Illinois Urbana Champaign
+% viczhang1990@gmail.com
+%
+% March 2014
+
 
 if len > maxIndex
 	index = [];

@@ -1,4 +1,5 @@
 function [f, inlierIdx, residual] = ransac1( x,y,ransacCoef)
+
 %[f inlierIdx] = ransac1( x,y,ransacCoef,solveHomo,calcDist )
 %	Use RANdom SAmple Consensus to find a fit from X to Y.
 %	X is M*n matrix including n points with dim M, Y is N*n;
@@ -20,7 +21,14 @@ function [f, inlierIdx, residual] = ransac1( x,y,ransacCoef)
 %	For line fitting, it should calculate the dist between the line and the
 %	points [x1;y1]; for homography, it should project x1 to y2 then
 %	calculate the dist between y1 and y2.
-%	Yan Ke @ THUEE, 20110123, xjed09@gmail.com
+%
+% Author: 
+% Bicheng Zhang  
+% Department of Computer Engineering
+% University of Illinois Urbana Champaign
+% viczhang1990@gmail.com
+%
+% March 2014
 
 
 minPtNum = ransacCoef.minPtNum;

@@ -1,7 +1,15 @@
-%% Image Stitching Algorithm
-%% Author: Bicheng Zhang
-%% Support stich multiple images
-%% Parameters can be tuned for best performance
+% Image Stitching Algorithm
+% Author: Bicheng Zhang
+% Support stich multiple images
+% Parameters can be tuned for best performance
+%
+% Author: 
+% Bicheng Zhang  
+% Department of Computer Engineering
+% University of Illinois Urbana Champaign
+% viczhang1990@gmail.com
+%
+% March 2014
 
 %% Please specify image folder and image names
 img_folder = 'pair_pitching_data/';

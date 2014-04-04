@@ -1,5 +1,32 @@
 function [stitched, inliers, residual] = stiching(left_img_rgb, right_img_rgb, harris_coe, ransac_coef, neighbor_size, putative_matches_limit, SHOW)
 
+% STITCHING - Pair image stitching algorithm
+% Usage:  [stitched, inliers, residual] = stiching(left_img_rgb, right_img_rgb, harris_coe, ransac_coef, neighbor_size, putative_matches_limit, SHOW)
+% Arguments:   
+%            left_img_rgb     - left image in rgb format
+%            right_img_rgb     - right image in rgb format
+%            harris_coe  - Harris corder detector coefficient
+%                     
+%            ransac_coef - Ransac coefficient
+%            neighbor_size - Putative matches neighbor size
+%            putative_matches_limit   - Maximum number of putative matches
+%            SHOW - 1: show detail to console. 0: not show
+%
+% Returns:
+%            stitched    - Stitched image in rgb format
+%            inliers      - all inliers in [x,y] format
+%            residual      - average residual of best selected putative
+%                           matches
+%
+%
+% Author: 
+% Bicheng Zhang  
+% Department of Computer Engineering
+% University of Illinois Urbana Champaign
+% viczhang1990@gmail.com
+%
+% March 2014
+
 
 
 %% 1. Load all images, convert to double and to grayscale

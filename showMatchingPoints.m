@@ -1,5 +1,11 @@
 function dispImage = showMatchingPoints(image1, image2, x1, y1, x2, y2)
-%SHOWMATCHINGPOINTS 
+% Author: 
+% Bicheng Zhang  
+% Department of Computer Engineering
+% University of Illinois Urbana Champaign
+% viczhang1990@gmail.com
+%
+% March 2014
 
     [h1, w1, d] = size(image1);
     [h2, w2, ~] = size(image2);

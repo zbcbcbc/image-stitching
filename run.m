@@ -1,29 +1,32 @@
-%% UIUC ECE 549 Assignment 3
-%% Support stich multiple images (extra credit)
-img_folder = 'pair_pitching_data/';
-%img_folder = 'assignment3_data/hill/';
-%img_name_list = ['1','2','3'];
-img_name_list = char('uttower_1','uttower_2');
-%% General paremeters
-SHOW_DETAILS = 0;
+%% Image Stitching Algorithm
+%% Author: Bicheng Zhang
+%% Support stich multiple images
+%% Parameters can be tuned for best performance
 
+%% Please specify image folder and image names
+img_folder = 'pair_pitching_data/';
+img_name_list = char('uttower_1','uttower_2');
+
+
+%% General paremeters
+SHOW_DETAILS = 0; % Show inliers in plots, ransac algorithm info
 
 
 %% Putative matches parameters
-neighbor_size = 10;
-putative_matches_limit = 50;
+neighbor_size = 10; % Neihbor size used in putative matches
+putative_matches_limit = 50; % Number of putative matches selected
 
 
 %% Harris code parameters
-harris_coe.threshold = 5000;
-harris_coe.sigma = 2.1;
-harris_coe.radius = 2;
-harris_coe.display_result = 0;
+harris_coe.threshold = 5000; % Feature point threshold
+harris_coe.sigma = 2.1; % Sigma
+harris_coe.radius = 2; % Feature point radius
+harris_coe.display_result = 0; % Display features points 
 
 %% RANSAC parameters
-ransac_coef.minPtNum = 4;
-ransac_coef.iterNum = 10000;  
-ransac_coef.thDist = 1;
+ransac_coef.minPtNum = 4; % Ransac number of putative matches selected in each iteration
+ransac_coef.iterNum = 10000;  % Number of total iteration
+ransac_coef.thDist = 1; % Ransac inlier distance
 
 
 
@@ -72,46 +75,6 @@ end
 figure, imshow(img_pool{1});
 
 
-%{
-if NUMBER_IMG == 2
-    [stiched_img,~,~] = stiching(first_img_rgb, second_img_rgb, harris_coe, ransac_coef, 1);
-    figure, imshow(stiched_img);
-elseif NUMBER_IMG == 3
-   % Test first and second
-   [stiched_img_1, inliers_1, residual_1] = stiching(first_img_rgb, second_img_rgb, harris_coe, ransac_coef, neighbor_size,putative_matches_limit,0);
-   % Test second and third
-   %figure, imshow(stiched_img_1);
-   fprintf('Image 1&2 inliers:%d, residual:%d\n', size(inliers_1,2), residual_1);
-   
-   [stiched_img_2, inliers_2, residual_2] = stiching(second_img_rgb, third_img_rgb, harris_coe, ransac_coef, neighbor_size,putative_matches_limit,0);
-   % Test first and third
-   %figure, imshow(stiched_img_2);
-   fprintf('Image 2&3 inliers:%d, residual:%d\n', size(inliers_2,2), residual_2);
-   
-   [stiched_img_3, inliers_3, residual_3] = stiching(first_img_rgb, third_img_rgb, harris_coe, ransac_coef, neighbor_size,putative_matches_limit,0);
-   %figure, imshow(stiched_img_3);
-   fprintf('Image 1&3 inliers:%d, residual:%d\n', size(inliers_3,2), residual_3);
-
-   if residual_1 <= residual_2 && residual_1 <= residual_3
-       
-       [stiched_img, inliers, residual] = stiching(stiched_img_1, third_img_rgb,  harris_coe, ransac_coef, neighbor_size,putative_matches_limit,SHOW_DETAILS);
-       fprintf('Image 1&2 are selected, inliers: %d, residual:%d\n', size(inliers, 2), residual);
-   elseif residual_2 <= residual_1 && residual_2 <= residual_3
-        
-       [stiched_img, inliers, residual] = stiching(first_img_rgb, stiched_img_2,  harris_coe, ransac_coef, neighbor_size,putative_matches_limit,SHOW_DETAILS);
-       fprintf('Image 2&3 are selected, inliers: %d, residual:%d\n', size(inliers, 2), residual);
-   else
-       [stiched_img, inliers, residual] = stiching(stiched_img_3, second_img_rgb,  harris_coe, ransac_coef, neighbor_size,putative_matches_limit,SHOW_DETAILS);
-       fprintf('Image 1&3 are selected, inliers: %d, residual:%d\n', size(inliers, 2), residual);
-   end   
-   
-   %figure, imshow(stiched_img_1);
-   %figure, imshow(stiched_img_2);
-   %figure, imshow(stiched_img_3);
-   figure, imshow(stiched_img);
 end
-
-
-%}
 
 

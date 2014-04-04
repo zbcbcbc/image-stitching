@@ -28,12 +28,13 @@
 % pp 147-151, 1988.
 %
 % Author: 
-% Peter Kovesi   
-% Department of Computer Science & Software Engineering
-% The University of Western Australia
-% pk@cs.uwa.edu.au  www.cs.uwa.edu.au/~pk
+% Bicheng Zhang  
+% Department of Computer Engineering
+% University of Illinois Urbana Champaign
+% viczhang1990@gmail.com
 %
-% March 2002
+% March 2014
+
 
 function [cim, r, c] = harris(im, sigma, padding_size, thresh, radius, disp)
     
